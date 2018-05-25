@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Choose the type of event that you want to create</h1>
+<form method="POST">
+	<select name="type" >
+	  <option value="Course" name="Course">Course</option>
+	  <option value ="Seminar" name="Seminar">Seminar</option>
+	</select>
+	<button>Submit</button>
+</form>
+{% endblock %}

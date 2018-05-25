@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+{% block body %}
+<h1>Course Information</h1>
+
+{{detail}}
+<br>
+{% if detail.registerFlag == 0 %}
+<a href="{{url_for('RegistrationSuccess',eventNum=detail.eventNum)}}">Register</a></li>
+{% else %}
+<a href="{{url_for('CreateCourse')}}">Register</a></li>
+{% endif %}
+{% endblock %}

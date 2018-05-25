@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+{% block body %}
+<h1>Information</h1>
+
+{{detail}}
+<ul>    {%if detail.sessions%}
+        {% for a in detail.sessions %}
+        <li>{{a}}</li>
+            {% if detail.registerFlag == 0 %}
+            <a href="{{url_for('OpenedEvent')}}">Deregister</a></li>
+            {% else %}
+            <a href="{{url_for('CreateCourse')}}">Register</a></li>
+            {% endif %}
+        {% endfor %}
+        {%endif%}
+
+         
+
+
+
+        {%if detail.get_CourseTitle%}
+{% for a in detail.sessions %}
+        <li>{{a}}</li>
+            {% if detail.registerFlag == 0 %}
+            <a href="{{url_for('RegistrationSuccess',eventNum=detail.eventNum)}}">Register</a></li>
+            {% else %}
+            <a href="{{url_for('CreateCourse')}}">Register</a></li>
+            {% endif %}
+        {% endfor %}        
+        {%endif%}
+
+
+
+
+
+
+</ul>
+{% endblock %}

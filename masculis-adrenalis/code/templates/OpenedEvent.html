@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Open Courses & Seminars</h1>
+
+      <h2> Open Courses</h2>
+      <ul>
+        {% for c in course %}
+        {% if c.get_CourseTitle %}
+        <li><a href="{{url_for('ShowCourse', eventNum=c.eventNum)}}">{{c.get_CourseTitle()}}</a></li>
+        {%endif%}        
+        {% endfor %}
+      </ul>
+      <h2> Open Seminars </h2>
+      <ul>
+          {% for s in seminar %}
+          {% if s.get_SeminarTitle %}
+          <li><a href="{{url_for('ShowSeminar', eventNum=s.eventNum)}}">{{s.get_SeminarTitle()}}</a></li>
+          {%endif%}
+          {% endfor %}
+      </ul>
+{% endblock %}

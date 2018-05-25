@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block body %}
+<!doctype = html>
+<html>
+	<head>
+		<title> Homepage </title>
+	</head>
+	<style>
+		body {
+			background-image: url("https://www.unsw.edu.au/sites/default/files/UNSW_0.png")no-repeat;
+			background-position: 50% 65%;
+			background-repeat: repeat;
+		}
+		h5{
+            left: 27%;
+            top: 5%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 250%;
+        }
+		.menuCategory {
+   		    font-weight: bold;
+		    background-color: #F2F3F5;
+		    color: #036;
+		    padding: 2px;
+		    /*/*/border-top: 1px dashed #99ADC2;/* */
+		    /*/*/margin-top: 1px;/* */
+		}
+	</style>
+
+	<h5> Dashboard</h5>
+	<div>
+		<script language="JavaScript" type="text/javascript">
+		function toggle(obj) {
+		  with (document.getElementById(obj).style) { display = (display == 'none') ? 'block' : 'none'; }
+		}
+		</script>
+		<body>
+			<a href="javascript:toggle('menu_1')"><div class="menuCategory">Open Course</div></a>
+			<div id='menu_1'><div class='menuTopic'>
+				<ul>
+		          {% for foo in events %}
+                  {% if foo.get_CourseTitle %}
+		          <li><a href="{{url_for('AfterRegister', eventNum=foo.eventNum)}}">{{foo.get_CourseTitle()}}</a></li>
+                  {%endif%}
+		          {% endfor %}
+		        </ul>
+			</div></div>
+
+			<a href="javascript:toggle('menu_2')"><div class="menuCategory">Open Seminar</div></a>
+			<div id='menu_2'><div class='menuTopic'>
+        	    <ul>
+                  {% for q in events %}
+                  {% if q.get_SeminarTitle %}
+		          <li><a href="{{url_for('AfterRegisterSess', eventNum=q.eventNum, SessNum=q.SessNum)}}">{{q.get_SeminarTitle()}}</a></li>
+         
+                  {%endif%}
+                  {% endfor %}
+		        </ul>
+			</div></div>
+                
+		</body>
+		<br>
+		<iframe src="https://calendar.google.com/calendar/embed?height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=zh-cn.australian%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=Australia%2FSydney" style="border-width:0" width="290" height="300" frameborder="0" scrolling="no"></iframe>
+	</div>
+
+</html>
+{% endblock %}

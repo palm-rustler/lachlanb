@@ -1,0 +1,71 @@
+<!doctype = html>
+<html>
+	<head>
+		<title> Create Seminar Page </title>
+	</head>
+	<style>
+		h1{
+			position: absolute;
+			left: 40%;
+			font-size: 300%;
+			top: 2%;
+		}
+		.form {
+            position: absolute;
+            left: 38%;
+            top:10%;
+          	max-width: 800px;
+            max-height: 200px;
+          	margin: 80px auto;
+          	border-radius: 6px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 120%;
+        }
+		.button {
+            position: absolute;
+            max-width: 800px;
+            max-height: 500px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 120%;
+            left: 250%;
+            top: 275%;
+        }
+	</style>
+	<div style="float: left;"><IMG SRC="https://www.unsw.edu.au/sites/default/files/UNSW_0.png" width = "300px" length = "300px"></div>
+	<br>
+	<h1>Create a Session </h1>
+	<form method = "POST">
+	<div class="form">
+	    Title: <input name="title" type = "text" placeholder="Please enter course's title." style = "width:200%; height:25px;">
+	    <br>
+	    <br>
+	 	Presenter: <input name="presenter" type = "text" placeholder="Please enter presenter's name." style = "width:200%; height:25px;">
+	    <br>
+	    <br>
+	    Start Date: <input name="startDate" type="date" placeholder = "Please enter the start date (dd/mm/yy)" style = "width:200%; height:25px;">
+		<br>
+	    <br>
+		End Date: <input name="endDate" type="date" placeholder = "Please enter the end date (dd/mm/yy)" style = "width:200%; height:25px;">
+		<br>
+	    <br>
+	 	Deregister Before: <input name="deregDate" type="date" placeholder = "Please enter the deregister before date (dd/mm/yy)" style="width:200%; height:25px;">
+		<br>
+	    <br>
+	    Start Time: <input name="startTime" type="time" style="width:200%; height:25px;">
+		<br>
+	    <br>
+	    End Time: <input name="endTime" type="time" style="width:200%; height:25px;">
+		<br>
+	    <br>
+		Venue: <input name="venue" type="text" placeholder = "Please enter the venue" style="width:200%; height:25px;">
+		<br>
+	    <br>
+		Maximum Capacity: <input name="MaxCapacity" type="number" min="1" placeholder = "Please enter the maximum capacity in number (eg. 123)" style = "width:200%; height:25px;">
+		<br>
+		<br>
+		Description: <input name="description" style = "width:200%; height:100px;" type= "text" placeholder = "Please enter the description here.">
+	    <button class="button">Submit</button>
+
+    </div>
+    </form>
+</html>

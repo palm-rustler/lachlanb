@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+{% block body %}
+<h1>Seminar Information</h1>
+
+{{detail}}
+<ul>
+    {% for a in detail.sessions %}
+    <li>{{a}}</li>
+        {% if detail.registerFlag == 0 %}
+        <a href="{{url_for('RegistrationSuccessSession',eventNum=detail.eventNum, SessNum=detail.SessNum)}}">Register123</a></li>
+        {% else %}
+        <a href="{{url_for('CreateCourse')}}">Register</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+    {%if convenor == True%}
+    <h3>Add Session</h3>
+    <form method = "POST">
+    <div class="form">
+        Title: <input name="title" type = "text" placeholder="Please enter seminar's title." style = "height:25px;">
+        <br>
+        <br>
+        Presenter: <input name="presenter" type = "text" placeholder="Please enter presenter's name." style = "height:25px;">
+        <br>
+        <br>
+        Start Time: <input name="startTime" type="time" placeholder = "Please enter the start time" style = "height:25px;">
+        <br>
+        <br>
+        End Time: <input name="endTime" type="time" placeholder = "Please enter the end time" style = "height:25px;">
+        <br>
+        <br>
+        Date: <input name="date" type="date" placeholder = "Please enter the date (dd/mm/yy)" style= "height:25px;">
+        <br>
+        <br>
+        Description: <input name="description" style = "height:100px;" type= "text" placeholder = "Please enter the description here.">
+        <button class="button">Submit</button>
+
+    </div>
+    </form>
+    {% endif %}
+<br>
+{% endblock %}

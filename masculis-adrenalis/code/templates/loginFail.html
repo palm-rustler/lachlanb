@@ -1,0 +1,65 @@
+<!doctype = html>
+<html>
+    <head>
+      <title> UNSW Login System for events </title>
+    </head>
+
+      <h1> UNSW Events Management System (EMS) </h1>
+
+    <style>
+        body {
+        background-image: url("http://luigirizzoactor.com/wp-content/uploads/2015/07/UNSW-LOGO.jpg");
+        background-position: 50% 90%;
+        background-repeat: no-repeat;
+        }
+
+        h1{
+            position: absolute;
+            left: 25%;
+            top: 5%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 250%;
+        }
+        h2{
+            position: absolute;
+            left: 38%;
+            top: 55%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 160%;
+            color: red;
+        }
+        .form {
+            position: absolute;
+            left: 38%;
+            top:60%;
+          	max-width: 800px;
+            max-height: 500px;
+          	margin: 60px auto;
+          	border-radius: 6px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 160%;
+        }
+
+        .button {
+            position: absolute;
+            max-width: 800px;
+            max-height: 500px;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 120%;
+            left: 140%;
+            top: 40%;
+        }
+    </style>
+
+    <div class="form">
+    <label class = "real-skills-label" for="username"> Username:</label>
+    <input name = "username" type = "text" placeholder = "Please enter your name." style="width:200px; height:25px;">
+    <br>
+    <br>
+    <br>
+    <label class = "real-skills-label" for="password"> Password:</label>
+    <input name = "password" type = "password" placeholder = "Please enter your password." style = "width:200px; height:25px;">
+    <button class="button" type="submit" name="bt">Login</button>
+    </div>
+    <h2>Username / Password is incorrect! Please re-enter.</h2>
+</html>

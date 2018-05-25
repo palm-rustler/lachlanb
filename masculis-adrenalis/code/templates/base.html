@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>UNSW Event Management System</title>
+</head>
+
+<body>
+<a href="{{ url_for('dashboard') }}">Dashboard</a>
+<a href="{{url_for('OpenedEvent')}}">All Events</a>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% if trainer == 1 %}
+<a href="{{url_for('eventType')}}">Create Event</a>
+{% endif %}
+<br>
+{% block body %}{% endblock %}
+</body>
+</html>
