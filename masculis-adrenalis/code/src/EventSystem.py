@@ -79,9 +79,10 @@ class EventSystem(ABC):
 
     def get_event(self, eventNum):
         for details in self.get_allEvents():
+            print("test")
             if int(details.eventNum) is int(eventNum):
                 return details
-        #return None
+        return None
 
 
 

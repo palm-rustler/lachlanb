@@ -189,10 +189,7 @@ def AfterRegisterSess(eventNum, SessNum):
     details = system.get_event(eventNum)
     details.registerFlag = 0
     foo = details.get_sess(SessNum)
-    User = system.get_user(current_user.name)
-    if User != None:
-        User.remove_attend(foo)
-        details.registerFlag = 0       
+    User = system.get_user(current_user.name)    
     print("eventNum: {}".format( details.eventNum))
     return render_template('AfterReg.html', detail = details, foo = foo)
 
@@ -207,6 +204,18 @@ def RegistrationSuccessSession(eventNum, SessNum):
     if User != None:
         User.add_attend(foo)
     return render_template('RegistrationSuccess.html')
+
+@app.route('/deregisterSession/<eventNum>/<sessNum>')
+@login_required
+def deregisterSession(eventNum, sessNum):
+    
+    details = system.get_event(eventNum)
+    foo = details.get_sess(sessNum)
+
+    User = system.get_user(current_user.name)
+    if User != None:
+        User.remove_attend(foo)
+    return render_template('home.html')
 
 @app.route('/RegistrationSuccess/<eventNum>')
 @login_required

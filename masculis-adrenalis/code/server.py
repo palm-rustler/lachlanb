@@ -7,8 +7,6 @@ app = Flask(__name__)
 app.secret_key = 'very-secret-123'  # Used to add entropy
 system = bootstrap_system()
 
-
-
 # Login manager stuff
 login_manager = LoginManager()
 login_manager.init_app(app)
