@@ -179,8 +179,8 @@ def ShowSeminar(eventNum):
 def AfterRegister(eventNum):
     details = system.get_event(eventNum)
     User = system.get_user(current_user.name)
-    if User != None:
-        User.remove_attend(details)
+    #if User:
+    #    User.remove_attend(details)
     return render_template('AfterReg.html', detail = details)
 
 @app.route('/AfterRegisterSess/<eventNum>/<SessNum>')
@@ -191,6 +191,7 @@ def AfterRegisterSess(eventNum, SessNum):
     foo = details.get_sess(SessNum)
     User = system.get_user(current_user.name)    
     print("eventNum: {}".format( details.eventNum))
+    print("SessNum: {}".format( details.SessNum))
     return render_template('AfterReg.html', detail = details, foo = foo)
 
 @app.route('/RegistrationSuccess/<eventNum>/<SessNum>')
@@ -201,20 +202,29 @@ def RegistrationSuccessSession(eventNum, SessNum):
     foo = details.get_sess(SessNum)
 
     User = system.get_user(current_user.name)
-    if User != None:
+    if User:
         User.add_attend(foo)
     return render_template('RegistrationSuccess.html')
 
-@app.route('/deregisterSession/<eventNum>/<sessNum>')
+@app.route('/deregisterSession/<eventNum>/<SessNum>')
 @login_required
-def deregisterSession(eventNum, sessNum):
+def deregisterSession(eventNum, SessNum):
     
     details = system.get_event(eventNum)
-    foo = details.get_sess(sessNum)
+    foo = details.get_sess(SessNum)
 
     User = system.get_user(current_user.name)
     if User != None:
         User.remove_attend(foo)
+    return render_template('home.html')
+
+@app.route('/deregisterEvent/<eventNum>')
+@login_required
+def deregisterEvent(eventNum):
+    details = system.get_event(eventNum)
+    User = system.get_user(current_user.name)
+    if User:
+        User.remove_attend(details)
     return render_template('home.html')
 
 @app.route('/RegistrationSuccess/<eventNum>')
@@ -222,7 +232,7 @@ def deregisterSession(eventNum, sessNum):
 def RegistrationSuccess(eventNum):
     details = system.get_event(eventNum)
     User = system.get_user(current_user.name)
-    if User != None:
+    if User:
         User.add_attend(details)
     return render_template('RegistrationSuccess.html')
 

@@ -103,6 +103,7 @@ class Session(Seminar):
         self.description = description
         self.SessNum = SessNum
         self.eventNum = eventNum
+		
     def __str__(self):
         return "Session Details: {} || Presenter: {} || Description: {} || Date: {} || Time: {} - {}".format(self.seminarTitle, self.presenter, self.description, self.date, self.startTime, self.endTime)
 

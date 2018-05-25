@@ -19,6 +19,7 @@ def bootstrap_system():
             if 'trainer' in name:
                 system.add_user(Staff(my_list[0], my_list[1], my_list[2], my_list[3], my_list[4]))
 
-    system.create_Course("courseTitle", "presenter", 0, 0, 0, 0, "venue", 5, "description", "status", system.numEvents(), 0)
-    system.create_Course("courseTitle2", "presenter", 0, 0, 0, 0, "venue", 5, "description", "status", system.numEvents(), 0)
+    system.addCourse(system.create_Course("courseTitle", "presenter", 0, 0, 0, 0, "venue", 5, "description", "status", system.numEvents(), 0))
+    system.addCourse(system.create_Course("courseTitle2", "presenter", 0, 0, 0, 0, "venue", 5, "description", "status", system.numEvents(), 0))
+    system.addSeminar(system.create_Seminar("seminarTitle", "name1", 0, 0, 0, 0, 0, "venue", 6, 1, "description", "status", system.numEvents(), 0))
     return system
