@@ -4,36 +4,23 @@
 <h1>Information</h1>
 
 {{detail}}
+<form method="GET">
 <ul>    {%if detail.sessions%}
-        {% for a in detail.sessions %}
-        <li>{{a}}</li>
-            {% if detail.registerFlag == 0 %}
-            <a href="{{url_for('OpenedEvent')}}">Deregister</a></li>
-            {% else %}
-            <a href="{{url_for('CreateCourse')}}">Register</a></li>
-            {% endif %}
-        {% endfor %}
+            {% for a in detail.sessions %}
+            <li>{{a}}</li>
+                {% if details %}
+                    <li><a href="{{url_for('deregisterSession', eventNum=detail.eventNum, SessNum=detail.SessNum)}}">Deregister</a></li>
+                {%else%}
+                    <li><a href="{{url_for('deregisterSession', eventNum=detail.eventNum, SessNum=detail.SessNum)}}">Deregister</a></li>
+                {%endif%}
+            {% endfor %}
+        {%else%} 
+            <a href="{{url_for('deregisterEvent', eventNum=detail.eventNum)}}">Deregister</a>
         {%endif%}
 
          
-
-
-
-        {%if detail.get_CourseTitle%}
-{% for a in detail.sessions %}
-        <li>{{a}}</li>
-            {% if detail.registerFlag == 0 %}
-            <a href="{{url_for('RegistrationSuccess',eventNum=detail.eventNum)}}">Register</a></li>
-            {% else %}
-            <a href="{{url_for('CreateCourse')}}">Register</a></li>
-            {% endif %}
-        {% endfor %}        
-        {%endif%}
-
-
-
-
-
+</form>
 
 </ul>
+
 {% endblock %}
